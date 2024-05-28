@@ -9,9 +9,7 @@ import StopInfo from "./StopInfo";
 import Spinner from "./Spinner";
 
 import "maplibre-gl/dist/maplibre-gl.css";
-/* import type { LngLatLike } from "maplibre-gl"; */
 
-/* import { MobilityMap as MapClass } from "./mobility-map.js"; */
 import { useMobilityMap } from "./mobility-map.js";
 
 import styles from "./MobilityMap.module.css";
@@ -32,14 +30,11 @@ export function MobilityMap({
   styleURL,
   nominatimURL,
 }: Props): React.JSX.Element {
-  console.log("render");
-
   const [position, setPosition] = useState<null | LngLat>(null);
   const [stops, stopsState] = useStops(position);
   const [selected, setSelected] = useState<null | SelectedObject>(null);
-  const [containerRef] = useMobilityMap(
+  const containerRef = useMobilityMap(
     styleURL,
-    nominatimURL,
     stops,
     setPosition,
     setSelected,

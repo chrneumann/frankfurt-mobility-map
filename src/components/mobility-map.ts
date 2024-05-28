@@ -30,7 +30,6 @@ export class MobilityMap {
     onPositionChange: (position: LngLat | null) => void,
     onSelectionChange: (object: SelectedObject | null) => void,
   ) {
-    console.log("construct");
     const protocol = new Protocol();
     this.positionMarker = new Marker({ color: "#500075" });
     this.onSelectionChange = onSelectionChange;
@@ -168,22 +167,18 @@ export class MobilityMap {
  */
 export function useMobilityMap(
   styleURL: string,
-  nominatimURL: string,
   stops: Stop[],
   setPosition: (position: LngLat | null) => void,
   setSelected: (object: SelectedObject | null) => void,
-): [React.RefObject<HTMLDivElement>] {
+): React.RefObject<HTMLDivElement> {
   const containerRef = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<null | MobilityMap>(null);
-
-  console.log("stops: ", stops);
 
   // Initialize the map.
   useEffect(() => {
     if (!containerRef.current) {
       return;
     }
-    console.log("construct map");
     const theMap = new MobilityMap(
       styleURL,
       containerRef.current,
@@ -192,7 +187,6 @@ export function useMobilityMap(
       setSelected,
     );
     return () => {
-      console.log("destruct map");
       theMap.destruct();
     };
   }, [containerRef]);

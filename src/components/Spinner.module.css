@@ -1,0 +1,26 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.root {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  animation: rotate 1s linear infinite;
+  &::before {
+    background-color: #500075;
+    width: 100%;
+    height: 100%;
+    content: "";
+    display: block;
+    mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iIzAwMDAwMCIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxwYXRoIGQ9Ik0yMzIsMTI4YTEwNCwxMDQsMCwwLDEtMjA4LDBjMC00MSwyMy44MS03OC4zNiw2MC42Ni05NS4yN2E4LDgsMCwwLDEsNi42OCwxNC41NEM2MC4xNSw2MS41OSw0MCw5My4yNyw0MCwxMjhhODgsODgsMCwwLDAsMTc2LDBjMC0zNC43My0yMC4xNS02Ni40MS01MS4zNC04MC43M2E4LDgsMCwwLDEsNi42OC0xNC41NEMyMDguMTksNDkuNjQsMjMyLDg3LDIzMiwxMjhaIj48L3BhdGg+PC9zdmc+")
+      no-repeat 100% 100%;
+    mask-size: cover;
+  }
+}

@@ -1,0 +1,80 @@
+.root {
+  position: relative;
+  height: 100%;
+  border: 1px solid #ccc;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: white;
+  z-index: 500;
+  p {
+    margin: 0;
+    line-height: 30px;
+    text-align: center;
+    box-shadow:
+      rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.sidebar {
+  position: absolute;
+  overflow: auto;
+  z-index: 10;
+  background: white;
+  box-shadow:
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  width: 15em;
+  max-width: 100%;
+  max-height: calc(100% - 50px);
+  top: 35px;
+  left: -19em;
+  transition: left 0.1s ease-out;
+  &.sidebar--open {
+    left: 0;
+  }
+  & > * {
+    padding: 0 1em;
+  }
+}
+
+.close {
+  /* Icon Copyright (c) 2020 Phosphor Icons, MIT License */
+  display: block;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  background: white
+    url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iIzAwMDAwMCIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxwYXRoIGQ9Ik0yMDgsMzJINDhBMTYsMTYsMCwwLDAsMzIsNDhWMjA4YTE2LDE2LDAsMCwwLDE2LDE2SDIwOGExNiwxNiwwLDAsMCwxNi0xNlY0OEExNiwxNiwwLDAsMCwyMDgsMzJabTAsMTc2SDQ4VjQ4SDIwOFYyMDhaTTE2NS42NiwxMDEuNjYsMTM5LjMxLDEyOGwyNi4zNSwyNi4zNGE4LDgsMCwwLDEtMTEuMzIsMTEuMzJMMTI4LDEzOS4zMWwtMjYuMzQsMjYuMzVhOCw4LDAsMCwxLTExLjMyLTExLjMyTDExNi42OSwxMjgsOTAuMzQsMTAxLjY2YTgsOCwwLDAsMSwxMS4zMi0xMS4zMkwxMjgsMTE2LjY5bDI2LjM0LTI2LjM1YTgsOCwwLDAsMSwxMS4zMiwxMS4zMloiPjwvcGF0aD48L3N2Zz4=")
+    center/cover no-repeat;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+  top: 30px;
+}
+
+.spinner {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(100, 100, 100, 0.3);
+}

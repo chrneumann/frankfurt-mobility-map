@@ -1,0 +1,48 @@
+{
+  "name": "frankfurt-mobility-map",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./styles.css": "./dist/index.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "run-s -s lint:*",
+    "lint:js": "eslint --format unix src/",
+    "format": "run-s -s format:*",
+    "format:js": "prettier --write src/ *.json",
+    "type-check": "tsc --noEmit",
+    "clean": "rimraf dist/",
+    "build": "run-s -sl clean build:*",
+    "build:js": "esbuild src/components/MobilityMap.tsx --bundle --external:react --external:react-dom --outfile=dist/index.js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "dev": "esbuild demo/demo.tsx --bundle --watch --serve --servedir=demo --outdir=demo --sourcemap=inline"
+  },
+  "dependencies": {
+    "classnames": "^2.5.1",
+    "pmtiles": "^3.0.5"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "esbuild": "^0.21.4",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.2",
+    "maplibre-gl": "^4.3.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "3.2.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.11.0"
+  }
+}
